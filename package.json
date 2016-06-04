@@ -1,0 +1,28 @@
+{
+  "name": "changelog",
+  "version": "1.0.0",
+  "description": "Yet another command-line utility to generate changelogs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "changelog" : "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bwinton/changelog.git"
+  },
+  "keywords": [
+    "changelog",
+    "git"
+  ],
+  "author": "Blake Winton <bwinton@latte.ca>",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/bwinton/changelog/issues"
+  },
+  "homepage": "https://github.com/bwinton/changelog#readme",
+  "dependencies": {
+  }
+}
