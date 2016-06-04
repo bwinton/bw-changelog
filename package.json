@@ -4,7 +4,8 @@
   "description": "Yet another command-line utility to generate changelogs.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "bin": {
     "changelog" : "./index.js"
@@ -24,5 +25,8 @@
   },
   "homepage": "https://github.com/bwinton/changelog#readme",
   "dependencies": {
+  },
+  "devDependencies": {
+    "eslint": "2.9.0"
   }
 }
