@@ -5,7 +5,7 @@ const log = require('git-log-parser');
 const toArray = require('stream-to-array');
 
 const tagRegex = /tag:\s*(v?\d+(\.\d+(\.\d+)?)?)[,\)]/gi;
-const subjectRegex = /(feat|fix):\s*(.*)/;
+const subjectRegex = /(feat(?:ure)?|fix):\s*(.*)/;
 const fixesRegex = /^Fixes (#[0-9]+)\.$/gm;
 
 const makeTitle = (title, body) => {
@@ -27,6 +27,7 @@ const formatRelease = (release) => {
     features = `### New Features:
 
 ${features.map(i => '* ' + i).join('\n')}
+
 `;
   }
 
@@ -60,6 +61,9 @@ toArray(log.parse({'first-parent': true}), (err, commits) => {
     match = subjectRegex.exec(commit.subject);
     if (match) {
       let [type, title] = match.slice(1);
+      if (type === 'feature') {
+        type = 'feat';
+      }
       let bucket = release.get(type);
       if (!bucket) {
         release.set(type, []);
